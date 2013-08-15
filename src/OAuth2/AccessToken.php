@@ -43,7 +43,7 @@ class AccessToken
 
     return \OAuth2\AccessToken::fromHash($client, $hash);
   }
-  
+
  /**
   * Creates an AccessToken
   *
@@ -74,7 +74,7 @@ class AccessToken
       $this->$camelizedArg = $opts[$arg];
       unset($opts[$arg]);
     }
-    
+
     $this->expiresIn = isset($opts['expires']) ? (int) $opts['expires'] : (int) $this->expiresIn;
     if ($this->expiresIn) {
       $this->expiresAt = $this->expiresAt ? $this->expiresAt : time() + $this->expiresIn;
@@ -204,7 +204,7 @@ class AccessToken
   {
     return $this->request('GET', $path, $opts);
   }
-  
+
  /**
   * Make a POST request with the Access Token
   *
@@ -214,7 +214,7 @@ class AccessToken
   {
     return $this->request('POST', $path, $opts);
   }
-  
+
  /**
   * Make a PUT request with the Access Token
   *
@@ -260,7 +260,7 @@ class AccessToken
   }
 
 
-  private function setToken($opts)
+  public function setToken($opts)
   {
     switch ($this->options['mode']) {
       case 'header':
